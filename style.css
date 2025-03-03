@@ -6,14 +6,25 @@
     }
 }
 
+/* Card uden billede og overskrift */
+.card:not(:has(img, h3)) p {
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
 
+/* Card uden billede */
+.card:not(:has(img)) h3 {
+    font-size: 1.6rem;
+}
 
+/* Cards der har et billede */
+.card:has(img) {
+    padding: 0;
 
-
-
-
-
-
+    .content {
+        padding: 1rem;
+    }
+}
 
 
 
