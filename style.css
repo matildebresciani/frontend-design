@@ -14,3 +14,42 @@
 
 
 /* Begynd her... */
+
+
+.container {
+    max-width: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    padding: var(--card-padding);
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    h1 {
+        font-size: var(--font-heading);
+        font-weight: bold;
+    }
+
+    img {
+        grid-column: 1/2;
+        border-radius: 100%;
+        width: var(--image-width);
+    }
+
+    .icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        color: var(--color-icon);
+        margin-top: auto;
+
+        svg {
+            height: 25px;
+            width: 25px;
+        }
+    }
+}
