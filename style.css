@@ -2,6 +2,7 @@ li,
 main,
 aside {
     /* Sæt container-type */
+    container-type: inline-size
 }
 
 ul {
@@ -10,8 +11,16 @@ ul {
     padding-block: 1rlh;
 
     /* Tilføj container regel, når width > 700px */
+    @container (width > 700px) {
     /* - Indstil 2 kolonner */
+    grid-template-columns: 1fr 1fr;
     /* - Sæt det første barn til `grid-column: span 2` */
+    li:first-child {
+        grid-column: span 2;
+    }
+
+  
+    }
 }
 
 article {
@@ -38,8 +47,17 @@ article {
 
 
     /* Tilføj container regel når width > 500px */
+    @container (width > 500px) {
     /* - Indstil 2 kolonner */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
     /* - Sæt `order: 1;` på img på hvert andet card */
+   :nth-child(even) img {
+        order: 1;
+    }
+
+    }
 }
 
 /* Læg mærke til, at vi bør stadig bruge @media, når det handler om viewporten */
