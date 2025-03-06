@@ -50,13 +50,14 @@ article {
     @container (width > 500px) {
     /* - Indstil 2 kolonner */
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    
-    /* - Sæt `order: 1;` på img på hvert andet card */
-   :nth-child(even) img {
-        order: 1;
+    grid-template-columns: auto auto;
     }
+}
 
+/* - Sæt `order: 1;` på img på hvert andet card */
+@container (width > 500px) {
+    li:nth-child(even) img {
+        order: 1;
     }
 }
 
