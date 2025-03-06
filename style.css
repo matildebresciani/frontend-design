@@ -49,15 +49,12 @@ article {
     /* Tilføj container regel når width > 500px */
     @container (width > 500px) {
     /* - Indstil 2 kolonner */
-    display: grid;
-    grid-template-columns: auto auto;
-    }
-}
+    grid-template-columns: 1fr 1fr;
 
-/* - Sæt `order: 1;` på img på hvert andet card */
-@container (width > 500px) {
-    li:nth-child(even) img {
+    /* - Sæt `order: 1;` på img på hvert andet card */
+    li:nth-child(even) & img {
         order: 1;
+    }
     }
 }
 
