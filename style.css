@@ -1,23 +1,54 @@
 .bento {
     display: grid;
     gap: var(--spacing-base);
+    grid-template-areas:
+    "title title cup"
+    "man list cup"
+    "man list tag";
+
+    @media (width < 650px) {
+        grid-template-areas:
+        "title title"
+        "cup tag"
+        "list man";
+    }
 
     .title {
         --bg: var(--color-brand-yellow);
+        container-type: inline-size;
+        grid-area: title;
+        display: grid;
+
+        div {
+            @container (width < 400px) {
+                display: contents;
+                > p:first-of-type {
+                    order: -1;
+                    margin-bottom: 1rlh;
+                }
+            }
+        }
     }
 
     .list {
         --bg: var(--color-brand-coffee);
+        grid-area: list;
     }
 
     .image-1 {
         color: var(--color-text-accent);
+        grid-area: cup;
+    }
+
+    .image-2 {
+        grid-area: man;
     }
 
     .tag {
         --bg: var(--color-brand-olive);
         font-size: 2rem;
         line-height: 1.2;
+        grid-area: tag;
     }
 }
 
