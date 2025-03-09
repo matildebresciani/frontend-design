@@ -1,6 +1,8 @@
 .bento {
     display: grid;
     gap: var(--spacing-base);
+    grid-auto-columns: 1fr;
+    grid-auto-rows: min-content;
     grid-template-areas:
     "title title cup"
     "man list cup"
@@ -9,9 +11,26 @@
     @media (width < 650px) {
         grid-template-areas:
         "title title"
-        "cup tag"
-        "list man";
+        "cup man"
+        "list tag";
     }
+
+    > * {
+        border-radius: var(--border-radius);
+        background: var(--bg);
+        padding: var(--spacing-base);
+        overflow: clip;
+        &:has(img) {
+          padding: 0;
+        }
+      }
+
+      img {
+        block-size: 100%;
+        padding: 0;
+        align-self: stretch;
+        object-fit: cover;
+      }
 
     .title {
         --bg: var(--color-brand-yellow);
@@ -20,6 +39,11 @@
         display: grid;
 
         div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: space-between;
+            
             @container (width < 400px) {
                 display: contents;
                 > p:first-of-type {
@@ -33,15 +57,46 @@
     .list {
         --bg: var(--color-brand-coffee);
         grid-area: list;
+        padding: var(--spacing-large);
+        color: var(--color-text-light);
+        font-size: 2rem;
+        line-height: 1.5;
+
+        .highlight {
+            color: var(--color-text-accent);
+            &::before {
+                content: "⚡";
+                margin-right: 10px;
+              }
+        }
     }
 
     .image-1 {
         color: var(--color-text-accent);
         grid-area: cup;
+        display: grid;
+
+        > * {
+            grid-area: 1/1;
+            justify-self: center;
+        }
+
+        p {
+            padding: var(--spacing-base);
+        }
+
+        p:first-child {
+            align-self: start;
+        }
+
+        p:last-child {
+            align-self: end;
+        }
     }
 
     .image-2 {
         grid-area: man;
+  
     }
 
     .tag {
@@ -73,6 +128,7 @@ h2 {
     font-size: 1.2rem;
     margin-top: auto;
 }
+
 
 
 
