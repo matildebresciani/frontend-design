@@ -27,6 +27,7 @@ const { id, question, answer, linkBlock } = props;
   details {
     color: hsl(190 30% 12%);
     border-bottom: 1px solid #dadada;
+    transition: all 0.5s ease;
 
     summary {
       font-weight: 700;
@@ -57,6 +58,10 @@ const { id, question, answer, linkBlock } = props;
           flex-shrink: 0;
         }
       }
+    }
+
+    details[open] {
+      --r: z 90deg;
     }
 
     .answer {
